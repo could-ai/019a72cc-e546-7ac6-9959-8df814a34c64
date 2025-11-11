@@ -1,0 +1,43 @@
+class Contact {
+  final String id;
+  final String name;
+  final String email;
+  final String phone;
+  final String company;
+  final String position;
+  final String status;
+
+  Contact({
+    required this.id,
+    required this.name,
+    required this.email,
+    required this.phone,
+    required this.company,
+    required this.position,
+    required this.status,
+  });
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'email': email,
+      'phone': phone,
+      'company': company,
+      'position': position,
+      'status': status,
+    };
+  }
+
+  factory Contact.fromJson(Map<String, dynamic> json) {
+    return Contact(
+      id: json['id'] ?? '',
+      name: json['name'] ?? '',
+      email: json['email'] ?? '',
+      phone: json['phone'] ?? '',
+      company: json['company'] ?? '',
+      position: json['position'] ?? '',
+      status: json['status'] ?? 'Active',
+    );
+  }
+}
